@@ -9,8 +9,6 @@ class ProjectModelSerializer(HyperlinkedModelSerializer):
 
 
 class TODONotesModelSerializer(HyperlinkedModelSerializer):
-    project = ProjectModelSerializer()
-
     class Meta:
         model = TODONotes
         fields = "__all__"

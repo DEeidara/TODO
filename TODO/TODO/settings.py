@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_filters",
     "corsheaders",
     "rest_framework",
     "usersapp",
@@ -133,11 +134,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "usersapp.TODOUser"
 
 REST_FRAMEWORK = {
-    "DEFAULT_RENDERER_CLASSES": (
+    "DEFAULT_RENDERER_CLASSES": [
         "djangorestframework_camel_case.render.CamelCaseJSONRenderer",
         "djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer",
-    ),
-    "DEFAULT_PARSER_CLASSES": (
-        "djangorestframework_camel_case.parser.CamelCaseJSONParser",
-    ),
+    ],
+    "DEFAULT_PARSER_CLASSES": [
+        "djangorestframework_camel_case.parser.CamelCaseMultiPartParser",
+    ],
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 100,
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
 }

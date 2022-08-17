@@ -20,7 +20,7 @@ class TODONotes(models.Model):
         (COMPLETED, "Completed"),
     ]
 
-    project = models.OneToOneField(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

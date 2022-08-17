@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from usersapp.views import TODOUserModelViewSet
+from usersapp.views import TODOUserCustomViewSet
 from mainapp.views import ProjectModelViewSet, TODONotesModelViewSet
 
 router = DefaultRouter()
-router.register("users", TODOUserModelViewSet)
+router.register("users", TODOUserCustomViewSet)
 router.register("projects", ProjectModelViewSet)
 router.register("TODO", TODONotesModelViewSet)
 
