@@ -7,10 +7,10 @@ const TODOUserItem = ({todouser}) => {
                 {todouser.username}
             </td>
             <td>
-                {todouser.first_name}
+                {todouser.firstName}
             </td>
             <td>
-                {todouser.last_name}
+                {todouser.lastName}
             </td>
             <td>
                 {todouser.email}
@@ -21,7 +21,7 @@ const TODOUserItem = ({todouser}) => {
 
 const TODOUserList = ({todousers}) => {
     return (
-        <table>
+        <table className='table'>
             <thead>
                 <tr>
                     <th>
@@ -43,4 +43,4 @@ const TODOUserList = ({todousers}) => {
     )
 }
 
-export default TODOUserList
+export default TODOUserList;

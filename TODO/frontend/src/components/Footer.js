@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div class="footer">
-        </div>
+        <footer className="container-fluid fixed-bottom">
+        </footer>
     )
 }
 
-export default Footer
+export default Footer;
