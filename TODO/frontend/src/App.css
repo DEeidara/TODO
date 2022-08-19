@@ -37,7 +37,7 @@
   }
 }
 
-.footer {
+/* .footer {
   padding-top: 50px;
   position: fixed;
   left: 0;
@@ -46,13 +46,19 @@
   background-color: gray;
   color: white;
   text-align: center;
+} */
+
+.container-fluid {
+  height: 10%;
+  background-color: cyan;
 }
 
-.menu {
-  padding-bottom: 50px;
-  height: 100%;
-  width: 100%;
-  background-color: gray;
+.nav {
+  background-color: cyan;
+}
+
+.nav-link {
+  color: black;
 }
 
 * {
