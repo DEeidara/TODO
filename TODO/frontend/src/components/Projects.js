@@ -26,22 +26,22 @@ const ProjectsList = ({projects}) => {
     return (
         <table className='table'>
             <thead>
-                <tr>
-                    <th>
-                        Project name
-                    </th>
-                    <th>
-                        Repository link
-                    </th>
-                    <th>
-                        Devs list
-                    </th>
-                    <th>
-                        TODO notes related to this project
-                    </th>
-                </tr>
+            <tr>
+                <th>
+                    Project name
+                </th>
+                <th>
+                    Repository link
+                </th>
+                <th>
+                    Devs list
+                </th>
+                <th>
+                    TODO notes related to this project
+                </th>
+            </tr>
             </thead>
-            <tbody>{projects.map((project) => <ProjectItem project={project} />)}</tbody>
+            <tbody>{projects.map((project) => <ProjectItem project={project}/>)}</tbody>
         </table>
     )
 }

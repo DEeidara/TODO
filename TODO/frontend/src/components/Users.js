@@ -23,22 +23,22 @@ const TODOUserList = ({todousers}) => {
     return (
         <table className='table'>
             <thead>
-                <tr>
-                    <th>
-                        Username
-                    </th>
-                    <th>
-                        First name
-                    </th>
-                    <th>
-                        Last name
-                    </th>
-                    <th>
-                        Email
-                    </th>
-                </tr>
+            <tr>
+                <th>
+                    Username
+                </th>
+                <th>
+                    First name
+                </th>
+                <th>
+                    Last name
+                </th>
+                <th>
+                    Email
+                </th>
+            </tr>
             </thead>
-            <tbody>{todousers.map((todouserr) => <TODOUserItem todouser={todouserr} />)}</tbody>
+            <tbody>{todousers.map((todouserr) => <TODOUserItem todouser={todouserr}/>)}</tbody>
         </table>
     )
 }
