@@ -2,7 +2,6 @@ import React from 'react';
 import {useParams} from 'react-router-dom';
 
 const TODONoteItem = ({TODONote}) => {
-    console.log(TODONote)
     return (
         <tr>
             <td>
@@ -15,10 +14,10 @@ const TODONoteItem = ({TODONote}) => {
                 {TODONote.status}
             </td>
             <td>
-                {TODONote.createdAt}
+                {TODONote["createdAt"]}
             </td>
             <td>
-                {TODONote.updatedAt}
+                {TODONote["updatedAt"]}
             </td>
         </tr>
     )

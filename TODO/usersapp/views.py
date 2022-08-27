@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from rest_framework import mixins
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
+
 from .models import TODOUser
 from .serializers import TODOUserModelSerializer
-from rest_framework import mixins
-from rest_framework.permissions import BasePermission
 
 
 # class StaffOnly(BasePermission):
@@ -17,6 +17,6 @@ class TODOUserCustomViewSet(
     mixins.UpdateModelMixin,
     GenericViewSet,
 ):
-    # permission_classes = [StaffOnly]
+    permission_classes = [IsAuthenticated]
     queryset = TODOUser.objects.all()
     serializer_class = TODOUserModelSerializer

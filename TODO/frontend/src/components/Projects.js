@@ -22,7 +22,6 @@ const ProjectItem = ({project}) => {
 }
 
 const ProjectsList = ({projects}) => {
-    console.log(projects)
     return (
         <table className='table'>
             <thead>
