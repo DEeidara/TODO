@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from .models import Project, TODONotes
 from .serializers import ProjectModelSerializer, TODONotesModelSerializer
@@ -21,10 +20,10 @@ class ProjectModelViewSet(ModelViewSet):
 
 class TODONotesPagination(PageNumberPagination):
     page_size = 20
+    ordering = ["-status"]
 
 
 class TODONotesModelViewSet(ModelViewSet):
-    # renderer_classes = [JSONRenderer]
     queryset = TODONotes.objects.all()
     serializer_class = TODONotesModelSerializer
     pagination_class = TODONotesPagination

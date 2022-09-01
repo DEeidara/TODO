@@ -3,6 +3,9 @@ from usersapp.models import TODOUser
 
 
 class Project(models.Model):
+    class Meta:
+        ordering = ["-name"]
+
     name = models.CharField(max_length=64)
     repository_link = models.URLField(blank=True)
     devs_list = models.ManyToManyField(TODOUser)
@@ -12,6 +15,9 @@ class Project(models.Model):
 
 
 class TODONotes(models.Model):
+    class Meta:
+        ordering = ["-status"]
+
     IN_PROGRESS = "IN PROGRESS"
     COMPLETED = "COMPLETED"
 
