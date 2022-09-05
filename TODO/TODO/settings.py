@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "usersapp",
     "mainapp",
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [
@@ -147,4 +148,5 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ],
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.QueryParameterVersioning",
 }
