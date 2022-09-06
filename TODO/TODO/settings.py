@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
+    "drf_yasg",
+    "graphene_django",
     "usersapp",
     "mainapp",
-    "drf_yasg",
 ]
 
 MIDDLEWARE = [
@@ -150,3 +151,5 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.QueryParameterVersioning",
 }
+
+GRAPHENE = {"SCHEMA": "TODO.schema.schema"}
