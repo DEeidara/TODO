@@ -5,9 +5,6 @@ const TODONoteItem = ({TODONote}) => {
     return (
         <tr>
             <td>
-                {TODONote.project.name}
-            </td>
-            <td>
                 {TODONote.text}
             </td>
             <td>
@@ -25,14 +22,11 @@ const TODONoteItem = ({TODONote}) => {
 
 const TODONotesList = ({TODONotes}) => {
     const {projectId} = useParams();
-    let filter_notes = TODONotes.filter((note) => note.project.id === Number.parseInt(projectId));
+    let filter_notes = TODONotes.filter((note) => note.project === Number.parseInt(projectId));
     return (
         <table className='table'>
             <thead>
             <tr>
-                <th>
-                    Project name
-                </th>
                 <th>
                     Text
                 </th>

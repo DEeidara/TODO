@@ -12,8 +12,9 @@ const Menu = (user) => {
                     <Link className='nav-link' to='/users'>Users</Link>
                 </li>
                 <li className='nav-item'>
-                    {user.user.is_authenticated() ?
-                        <a className='nav-link' onClick={() => user.user.logout()}>Sign out</a>
+                    {user.user.isAuthenticated() ?
+                        <button className='nav-link' onClick={() => user.user.logout()}>Sign
+                            out</button>
                         : <Link className='nav-link' to='/login'>Sign in</Link>}
                 </li>
             </ul>

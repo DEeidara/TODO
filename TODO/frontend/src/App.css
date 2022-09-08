@@ -49,6 +49,8 @@
 .nav-link {
     color: black;
     cursor: pointer;
+    background: none;
+    border: none;
 }
 
 .width-for-forms {
