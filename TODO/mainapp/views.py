@@ -20,7 +20,6 @@ class ProjectModelViewSet(ModelViewSet):
 
 class TODONotesPagination(PageNumberPagination):
     page_size = 20
-    ordering = ["-status"]
 
 
 class TODONotesModelViewSet(ModelViewSet):
