@@ -14,7 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.views.generic import TemplateView
 from rest_framework.routers import DefaultRouter
 from usersapp.views import TODOUserCustomViewSet
 from mainapp.views import ProjectModelViewSet, TODONotesModelViewSet
@@ -47,6 +48,7 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path("api-token-auth/", views.obtain_auth_token),
     path("graphql/", GraphQLView.as_view(graphiql=True)),
+    path("", TemplateView.as_view(template_name="index.html")),
     path("swagger<str:format>/", schema_view.without_ui()),  # noqa
     path("swagger/", schema_view.with_ui("swagger")),  # noqa
     # path("redoc/", schema_view.with_ui("redoc")),  # noqa

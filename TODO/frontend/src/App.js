@@ -11,6 +11,7 @@ import TODONotesList from './components/TODONotes';
 import LoginForm from "./components/Auth";
 import Cookies from "universal-cookie/es6";
 import ProjectForm from "./components/ProjectForm";
+import TODONoteForm from "./components/TODONoteForm";
 
 class App extends React.Component {
     constructor(props) {
@@ -33,7 +34,7 @@ class App extends React.Component {
         })
     }
 
-    create_project(name, devsList, repositoryLink) {
+    createProject(name, devsList, repositoryLink) {
         const headers = this.getHeaders()
         const data = {name: name, repositoryLink: repositoryLink, devsList: devsList}
         axios.post(`http://127.0.0.1:8000/api/projects/`, data, {headers}).then(() => {
@@ -41,6 +42,27 @@ class App extends React.Component {
         }).catch(error => {
             console.log(error)
             this.setState({projects: []})
+        })
+    }
+
+    deleteTODO(id) {
+        const headers = this.getHeaders()
+        axios.delete(`http://127.0.0.1:8000/api/TODO/${id}`, {headers}).then(() => {
+            this.loadData()
+        }).catch(error => {
+            console.log(error)
+            this.setState({TODONotes: []})
+        })
+    }
+
+    createTODO(text, project) {
+        const headers = this.getHeaders()
+        const data = {text: text, project: project}
+        axios.post(`http://127.0.0.1:8000/api/TODO/`, data, {headers}).then(() => {
+            this.loadData()
+        }).catch(error => {
+            console.log(error)
+            this.setState({TODONotes: []})
         })
     }
 
@@ -91,12 +113,13 @@ class App extends React.Component {
             console.log(error)
             this.setState({todousers: []})
         })
-
-        axios.get('http://localhost:8000/api/projects/', {headers}).then(response => {
+        axios.get(`http://localhost:8000/api/projects/`,
+            {headers}).then(response => {
             this.setState({
                 projects: response.data.results
             })
         }).catch(error => console.log(error))
+
 
         axios.get('http://localhost:8000/api/TODO/', {headers}).then(response => {
             this.setState({
@@ -122,12 +145,20 @@ class App extends React.Component {
                         <Route path='/projects'>
                             <Route index element={<ProjectsList projects={this.state.projects}
                                                                 deleteProject={(id) => this.deleteProject(id)}/>}/>
-                            <Route path=':projectId' element={<TODONotesList TODONotes={this.state.TODONotes}/>}/>
+                            <Route path=':projectId'
+                                   element={<TODONotesList TODONotes={this.state.TODONotes}
+                                                           deleteTODO={(id) => this.deleteTODO(id)}/>}/>
+
                             <Route exact path='/projects/create'
                                    element={<ProjectForm users={this.state.todousers}
-                                                         create_project={(name, devsList, repositoryLink) =>
-                                                             this.create_project(name, devsList, repositoryLink)}/>}/>
+                                                         createProject={(name, devsList, repositoryLink) =>
+                                                             this.createProject(name, devsList, repositoryLink)}/>}/>
+
                         </Route>
+                        <Route exact path='TODO/create'
+                               element={<TODONoteForm projects={this.state.projects}
+                                                      createTODO={(text, project) =>
+                                                          this.createTODO(text, project)}/>}/>
                         <Route path='*' element={<NotFound404/>}/>
                     </Routes>
                     <Footer/>

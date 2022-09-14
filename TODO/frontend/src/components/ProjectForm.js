@@ -31,8 +31,9 @@ class ProjectForm extends React.Component {
     }
 
     handleSubmit(event) {
-        this.props.create_project(this.state.name, this.state.devsList, this.state.repositoryLink)
+        this.props.createProject(this.state.name, this.state.devsList, this.state.repositoryLink);
         event.preventDefault()
+
     }
 
     render() {

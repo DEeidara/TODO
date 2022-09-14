@@ -15,10 +15,13 @@ const ProjectItem = ({project, deleteProject}) => {
                 {project.devsList.map((object) => <Link to='/users'>{object + ' '}</Link>)}
             </td>
             <td>
-                <Link to={`/projects/${project.id}`}>Link</Link>
+                <Link className='nav-link' to={`/projects/${project.id}`}>Link</Link>
             </td>
             <td>
                 <button className='nav-link' onClick={() => deleteProject(project.id)}>Delete</button>
+            </td>
+            <td>
+                <Link className='nav-link' to={`/projects/create`}>Link</Link>
             </td>
         </tr>
     )
