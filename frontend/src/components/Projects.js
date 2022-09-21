@@ -21,7 +21,7 @@ const ProjectItem = ({project, deleteProject}) => {
                 <button className='nav-link' onClick={() => deleteProject(project.id)}>Delete</button>
             </td>
             <td>
-                <Link className='nav-link' to={`/projects/create`}>Link</Link>
+                <Link className='nav-link' to={`/projects/create`}>Create</Link>
             </td>
         </tr>
     )
@@ -43,6 +43,8 @@ const ProjectsList = ({projects, deleteProject}) => {
                 </th>
                 <th>
                     TODO notes related to this project
+                </th>
+                <th>
                 </th>
                 <th>
                 </th>
